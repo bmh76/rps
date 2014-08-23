@@ -14,13 +14,22 @@
 	<script src="jquery-1.11.1.min.js"></script>
 	<script src="test-assert.js"></script>
 	<script src="unit-test.js"></script>
+	<script src="oop.js"></script>
+	<script src="rps-preheader.js"></script>
+	<script src="logic.js"></script>
+	<script src="console.js"></script>
+	<script src="player.js"></script>
+	<script src="enemy.js"></script>
 	<script src="rps.js"></script>
 	<script src="rps-test.js"></script>
 	<script>
-		rps.init();
-		unitTest.run();
-		rps.run();
-		rps.dispose();
+		unitTest.run(5);
+		/*
+		var game = RPS.Game.getInstance();
+		game.init();
+		game.run();
+		game.dispose();
+		*/
 	</script>
 </body>
 </html>

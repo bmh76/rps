@@ -1,42 +1,18 @@
-window.rps = {
-	//member variables
+defineClass(RPS, 'Game', {
+	// member variables
 	viewport : $('#game'),
 	gameOver : true,
-	console : {
-		consoleView : null,
-		init : function(consoleView) {
-			this.consoleView = consoleView;
-		},
-		println : function(message) {
-			this.print(message + '\n');
-		},
-		print : function(message) {
-			this.consoleView.val(this.getText() + message);
-		},
-		clear: function(){
-			this.consoleView.val('');
-		},
-		getLine: function(){
-			var text = this.consoleView.val();
-			var newlineIndex = text.lastIndexOf('\n');
-			if(newlineIndex != -1){
-				return text.substr(newlineIndex, text.length);
-			} else{
-				return '';
-			}
-		},
-		getText: function(){
-			return this.consoleView.val();
-		}
+	logic : null,
+	player : new RPS.Player(),
+	enemy : new RPS.Enemy(),
+	console : null,
+
+	// member functions
+	initialize : function() {
+		this.logic = new RPS.Logic(this);
+		this.console = new RPS.Console($('#console'));
 	},
 
-	
-	//member functions
-	init : function() {
-		var consoleView = this.viewport.find('#console');
-		this.console.init(consoleView);
-	},
-	
 	dispose : function() {
 
 	},
@@ -46,7 +22,19 @@ window.rps = {
 	},
 
 	run : function() {
-		//the main function of this game starts from here
-		//TODO : implement here
+		// the main function of this game starts from here
+		// TODO : implement here
 	},
-};
+	startNewGame : function() {
+		this.player.reset();
+		this.enemy.reset();
+	},
+});
+
+RPS.Game.getInstance = function() {
+	if (this._instance == null) {
+		this._instance = new RPS.Game();
+	}
+
+	return this._instance;
+}
