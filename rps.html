@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="rps.css" />
+</head>
+<body>
+	<h2>Rock Paper Scissors</h2>
+	<div id="game">
+		<div id="game-view"></div>
+		<textarea id="console"></textarea>
+	</div>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="test-assert.js"></script>
+	<script src="unit-test.js"></script>
+	<script src="rps.js"></script>
+	<script src="rps-test.js"></script>
+	<script>
+		rps.init();
+		unitTest.run();
+		rps.run();
+		rps.dispose();
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#game{
+	border:1px solid #aaa;
+	padding:8px;
+	width:608px;
+}
+#game-view{
+	width:600px;
+	height:320px;
+}
+#console{
+	border:1px solid #ccc;
+	outline:none;
+	width: 600px;
+	height: 120px;
+	resizable: none;
+	cursor:text;
+}
