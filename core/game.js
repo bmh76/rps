@@ -1,6 +1,5 @@
 defineClass(RPS, 'Game', {
 	viewport : $('#game'),
-	gui: new RPS.GUI(),
 	logic : null,
 	player : new RPS.Player(),
 	enemy : new RPS.Enemy(),

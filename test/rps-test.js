@@ -26,14 +26,6 @@
 		assert(ui.length != 0);
 	});
 	
-	unitTest.addTest('Logic.activatePlayerDiceButton', function(){
-		var logic = game.logic;
-		logic.enablePlayerDiceButton();
-		
-		var btn = game.getUI('btn-player-dice');
-		assert(btn.length != 0);
-		assert(btn.is(':disabled') == false);
-	});
 
 	unitTest.addTest('Logic.disablePlayerDiceButton', function(){
 		var logic = game.logic;
@@ -44,15 +36,31 @@
 		assert(btn.is(':disabled'));
 	});
 	
-	unitTest.addTest('GUI.bindEventHandler', function(){
+	unitTest.addTest('Logic.enablePlayerDiceButton', function(){
+		var logic = game.logic;
+		logic.enablePlayerDiceButton();
+		
 		var btn = game.getUI('btn-player-dice');
-		game.gui.bindEventHandler(btn, function(){
-			game.logic.sayHello = function(){
-				return 'hello';
-			};
-			assert('hello' == game.logic.sayHello());
-			delete game.logic.sayHello;
+		assert(btn.length != 0);
+		assert(btn.is(':disabled') == false);
+	});
+	
+	unitTest.addTest('GUI.bindEventTree', function(){
+		RPS.GUI.bindEventTree({
+			'game-view' : {
+				click : function(e) {
+					console.debug('hello');
+				},
+				
+				'btn-player-dice' : {
+					click: function(e){
+						alert('btn-player-dice');
+					}
+				}
+			}
 		});
+		
+		game.getUI('btn-player-dice').trigger('click');
 	});
 
 	game.dispose();
