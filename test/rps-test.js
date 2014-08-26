@@ -23,8 +23,12 @@
 	});
 	
 	
-	unitTest.addTest('testFailure', function(){
-		assertEqual('a', 'b');
+	unitTest.addTest('testBasicLogic', function(){
+		var logic = game.logic;
+		logic.startNewGame();
+		
+		
+		
 	});
 
 	game.dispose();

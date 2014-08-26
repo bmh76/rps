@@ -1,7 +1,6 @@
 defineClass(RPS, 'Game', {
 	// member variables
 	viewport : $('#game'),
-	gameOver : true,
 	logic : null,
 	player : new RPS.Player(),
 	enemy : new RPS.Enemy(),
@@ -15,10 +14,6 @@ defineClass(RPS, 'Game', {
 
 	dispose : function() {
 
-	},
-
-	isGameOver : function() {
-		return this.gameOver;
 	},
 
 	run : function() {
