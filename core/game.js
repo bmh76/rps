@@ -1,12 +1,11 @@
 defineClass(RPS, 'Game', {
-	// member variables
 	viewport : $('#game'),
+	gui: new RPS.GUI(),
 	logic : null,
 	player : new RPS.Player(),
 	enemy : new RPS.Enemy(),
 	console : null,
 
-	// member functions
 	initialize : function() {
 		this.logic = new RPS.Logic(this);
 		this.console = new RPS.Console($('#console'));
@@ -20,10 +19,10 @@ defineClass(RPS, 'Game', {
 		// the main function of this game starts from here
 		// TODO : implement here
 	},
-	startNewGame : function() {
-		this.player.reset();
-		this.enemy.reset();
-	},
+
+	getUI : function(uiname) {
+		return this.viewport.find('[rps-ui="' + uiname + '"]');
+	}
 });
 
 RPS.Game.getInstance = function() {

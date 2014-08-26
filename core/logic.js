@@ -1,7 +1,8 @@
 defineClass(RPS, 'Logic', {
+	game : null,
 	gameOver : true,
 
-	initialie : function(game) {
+	initialize : function(game) {
 		this.game = game;
 	},
 	startNewGame : function() {
@@ -21,6 +22,16 @@ defineClass(RPS, 'Logic', {
 //		run to "show result & want more games?";
 
 		this.waitForPlayerTurn(this.DEFAULT_WAIT_TURN);
+	},
+	enablePlayerDiceButton: function(){
+		var ui = this.game.getUI('btn-player-dice');
+		ui.removeAttr('disabled');
+		ui.prop('disabled', false);
+	},
+	disablePlayerDiceButton: function(){
+		var ui = this.game.getUI('btn-player-dice');
+		ui.attr('disabled', 'disabled');
+		ui.prop('disabled', true);
 	},
 	isPlayerWin : function(dicePlayer, diceEnemy) {
 		assertNotNull(dicePlayer);
